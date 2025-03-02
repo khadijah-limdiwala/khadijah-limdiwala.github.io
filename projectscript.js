@@ -239,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Helper to render images/videos
       const renderMedia = (fileList, container) => {
         fileList.forEach((file) => {
+          const extension = file.split(".").pop().toLowerCase();
           if (file.includes("google.com")) {
             const iframe = document.createElement("iframe");
             iframe.src = file;
@@ -248,25 +249,6 @@ document.addEventListener("DOMContentLoaded", () => {
             iframe.style.marginBottom = "1rem";
             container.appendChild(iframe);
           } else if (
-            extension === "jpg" ||
-            extension === "gif" ||
-            extension === "png"
-          ) {
-            const img = document.createElement("img");
-            img.src = `${mediaFolder}${file}`;
-            img.style.width = "100%";
-            img.style.marginBottom = "1rem";
-            container.appendChild(img);
-          } else if (extension === "mp4") {
-            const video = document.createElement("video");
-            video.src = `${mediaFolder}${file}`;
-            video.controls = true;
-            video.style.width = "100%";
-            video.style.marginBottom = "1rem";
-            container.appendChild(video);
-          }
-          const extension = file.split(".").pop().toLowerCase();
-          if (
             extension === "jpg" ||
             extension === "gif" ||
             extension === "png"
