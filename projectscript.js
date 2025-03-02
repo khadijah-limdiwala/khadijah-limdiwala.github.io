@@ -255,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // altinner1 = "Please Note that this video may not be playable in Safari and FireFox Browsers. You can also view this video in a new tab following this <a href='${file}'>link</a>"
             // altinner2 = "'>link</a>"
             altText.innerHTML = `Please Note that this video may not be playable in Safari and FireFox Browsers. You can also view this video in a new tab following this <a href="${file}" target="_blank" rel="noopener noreferrer">link</a>`;
+            container.appendChild(altText);
           } else if (
             extension === "jpg" ||
             extension === "gif" ||
