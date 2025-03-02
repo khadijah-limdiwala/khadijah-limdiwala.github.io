@@ -39,7 +39,7 @@ const proj = {
       "img3.jpg",
       "img4.jpg",
       "img5.jpg",
-      "https://drive.google.com/file/d/1uWNFhURG5xELnyc_CZXD3PByVP-sGr6r/preview",
+      "https://drive.google.com/file/d/1uWNFhURG5xELnyc_CZXD3PByVP-sGr6r/preview/",
     ],
   },
   p3: {
@@ -75,7 +75,7 @@ const proj = {
       "img6.png",
       "img7.png",
       "img8.png",
-      "https://drive.google.com/file/d/1iyiQeVgInc6RtMChz5JrGqELMZP71Dwz/preview",
+      "https://drive.google.com/file/d/1iyiQeVgInc6RtMChz5JrGqELMZP71Dwz/preview/",
     ],
   },
   p5: {
@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             file.includes("google.com")
           ) {
             const iframe = document.createElement("iframe");
-            iframe.src = file;
+            iframe.src = `${file}`;
             iframe.width = "100%";
             iframe.height = "480";
             iframe.style.border = "none";
