@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khadijah Limdiwala</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc; /* Beige background */
+            color: #5b3924; /* Dark brown text */
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1200px;
+            margin: 0 auto;
+            
+        }
+
+        header {
+            background: rgba(91, 57, 36, 0.75);
+            color: #f5f5dc;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hamburger {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #f5f5dc;
+            background: none;
+            border: none;
+        }
+
+        .navbar {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            text-align:justify;
+            /*position: fixed;
+            top: 0px;
+            right: 0;
+            width: 75%;*/
+            
+        }
+
+        .navbar.active {
+            display: flex;
+        }
+
+        .navbar li {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+
+        .navbar a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .hero {
+            position: relative;
+            color: #5b3924;
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .hero video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .hero-content {
+            z-index: 1;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin: 1 1 1rem;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            color: whitesmoke;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+            /* Gallery overlay */
+        .gallery-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            z-index: 9999;
+            overflow: hidden;
+        }
+        .gallery-content {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .gallery-items {
+            max-width: 90%;
+            max-height: 50%;
+            padding: 20px;
+        }
+        .gallery-box {
+            max-width: 80%;
+            max-height: 75%;
+            background-color: #fff8e7;
+            color: #5b3924;
+            position: relative;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .gallery-close {
+            position: absolute;
+            /* size: 2px;
+            line-height: 2px; */
+            top: 5px;
+            right: 5px;
+            width: 30px;       /* Makes it a square */
+            height: 30px;      /* Makes it a square */
+            font-size: 1.1rem;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            background: maroon;
+            margin: 1px white;
+            border: none;
+            cursor: pointer;
+        }
+        .gallery-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        .gallery-nav button {
+            background: rgba(91, 57, 36, 0.75);
+            color: #f5f5dc;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+
+        .live-collaboration {
+            padding: 2rem 0;
+            background: #fff8e7;
+        }
+
+        .live-collaboration h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #5b3924;
+        }
+
+        .live-collaboration-grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            scroll-behavior: smooth;
+        }
+
+        .live-collaboration-item {
+            flex: 0 0 300px;
+            background: #fff8e7;
+            border: 1px solid rgba(91, 57, 36, 0.75);
+            text-align: center;
+            padding: 1rem;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            color: #5b3924;
+        }
+        #khad-intro {
+            background-color: rgba(123, 86, 71, 0.56);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+            text-align: center;
+            border-radius: 5%;
+        }
+        #khad-para {
+            padding: 1rem;
+        }
+
+        .about-contact {
+            display: flex;
+            gap: 2rem;
+            padding: 2rem 0;
+            background: #fff8e7;
+        }
+
+        .about-contact img {
+            width: 75%;
+        }
+
+        .about-contact div {   
+            flex: 1;
+        }
+
+        .about-contact h2 {
+            color: #5b3924;
+        }
+
+        .about-contact p {
+            color: #5b3924;
+        }
+
+        footer {
+            background: rgba(91, 57, 36, 0.75);
+            color: #f5f5dc;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navbar = document.querySelector(".navbar");
+
+            hamburger.addEventListener("click", () => {
+                navbar.classList.toggle("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <button class="hamburger">☰</button>
+            <ul class="navbar">
+                <li><a href="#">Home</a></li>
+                <li><a href="#khad-intro">About</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="#live-collaboration">Industrial Collaborations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <video autoplay loop muted>
+            <source src="media/khadijah-homepage-intro.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Khadijah Limdiwala</h1>
+            <p>Browse my portfolio for a glimpse into my design world.</p>
+        </div>
+    </section>
+
+
+
+    <!-- Live Collaboration Section -->
+    <section id="live-collaboration" class="live-collaboration">
+        <div class="container">
+            <h2>Highlights</h2>
+            <div class="live-collaboration-grid">
+                <div class="live-collaboration-item" id="mason">
+                    <p>Collaboration with Mason Home</p>
+                    <img src="media/masonhome.jpg" alt="Mason Home" width="400" >
+                </div>
+                <div class="live-collaboration-item" id="abcd">
+                    <p>ABCD Craft Installation '24</p>
+                    <img src="media/abcd.jpg" alt="ABCD Craft" width="400">
+                </div>
+                <div class="live-collaboration-item" id="godrej">
+                    <p>Godrej Conscious Collective '23</p>
+                    <img src="media/godrej.jpg" alt="Godrej" width="400">
+                </div>
+                <div class="live-collaboration-item" id="conclave">
+                    <p>Design Conclave - student presenter</p>
+                    <img src="media/conclave.jpg" alt="Design Conclave" width="400">
+                </div>
+                <div class="live-collaboration-item" id="am-office">
+                    <p>A&M Office Redesign </p>
+                    <img src="media/amoffice.jpg" alt="AM Office" width="400">
+                </div>
+                <div class="live-collaboration-item" id="hostel">
+                    <p>Hostel Accommodation</p>
+                    <img src="media/hostel.jpg" alt="Hostel Accommodation" width="400">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About and Contact Section -->
+    <section id="about-contact" class="about-contact">
+        <div class="container">
+            <div id="khad-intro">
+                <img src="media/khadijah.jpg" alt="Khadijah Limdiwala">
+            </div>
+            <div id="khad-para">
+                <h2>About Khadijah Limdiwala</h2>
+                <p>For me, design is more than just creating spaces—it's about telling stories, shaping experiences, and crafting environments that leave a lasting impression. Each project is a journey, an opportunity to transform concepts into dynamic, functional spaces that resonate on a deeper level.</p>
+                <p> My approach to design is rooted in curiosity and a meticulous eye for detail. I believe that every space has a rhythm, a personality waiting to be uncovered. By blending creativity, purpose, and innovation, I strive to bring out the unique essence of each project, ensuring that every corner not only looks beautiful but also feels meaningful and intuitive.</p>
+                <p> What drives me is the belief that design has the power to enhance the way we live, connect, and experience the world. Whether it's weaving light and materials to create ambiance or challenging norms to push boundaries, my work is guided by a passion for creating spaces that are as inspiring as they are functional. </p>
+                <p> I see myself as a perpetual learner, eager to explore new ideas, techniques, and technologies that redefine the possibilities of design. My journey is one of growth and discovery, fueled by empathy, strategy, and an unrelenting passion for creating environments that inspire thought, spark connection, and enrich lives. </p>
+                <p> Interior design, to me, is not just a profession—it's the art of breathing life into spaces, crafting stories that linger long after the first glance.</p>
+                <p>Proficient in:</p>
+                <ul>
+                    <li>
+                    <b>Design Software:</b>
+                    Adobe Creative Cloud (Photoshop, Illustrator, InDesign), Rhino 3D, AutoCAD 2D, SketchUp    
+                    </li>
+                    <li>
+                    <b>Rendering Tools:</b> 
+                    V-Ray for Rhino, SketchUp, Twinmotion
+
+                    </li>
+                    <li>
+                        <b>Visualization & Presentation:</b> Video creation and editing for storytelling and design pitches.
+                    </li>
+                    <li>
+                        <b>Interior Design Skills: </b> Concept development, space planning, 3D modeling, material selection, and design detailing.
+                    </li>
+                    <li>
+                        Adept at utilizing these tools and skills to translate ideas into impactful, visually compelling, and functional design solutions.
+                    </li>
+                </ul>
+                <h2>Contact</h2>
+                <p>Email: <a href="mailto:khadijahlimdiwaladesigns@gmail.com">khadijahlimdiwaladesigns@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Khadijah Limdiwala. All rights reserved.</p>
+        </div>
+    </footer>
+    <!-- Gallery overlay (hidden by default) -->
+    <div id="gallery-overlay" class="gallery-overlay">
+    <div class="gallery-content">
+        <div class="gallery-box">
+            <button id="gallery-close" class="gallery-close">x</button>
+            <div id="gallery-items"></div>
+            <div class="gallery-nav">
+                <button id="gallery-prev">← Prev</button>
+                <button id="gallery-next">Next →</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script src="myscripts.js"></script>
+</body>
+</html>

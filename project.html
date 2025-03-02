@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Projects - Khadijah Limdiwala</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5dc;
+            color: #5b3924;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            background: rgba(91, 57, 36, 0.75);
+            color: #f5f5dc;
+            padding: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .hamburger {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #f5f5dc;
+            background: none;
+            border: none;
+        }
+        .navbar {
+            list-style: none;
+            display: none;
+            flex-direction: column;
+            text-align:justify;
+        }
+        .navbar.active {
+            display: flex;
+        }
+        .navbar li {
+            margin: 0.5rem 0;
+            text-align: center;
+        }
+        .navbar a {
+            color: #f5f5dc;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        main {
+            padding-top: 4rem;
+        }
+        .project-overview {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .project-overview h1 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 0.75fr));
+            gap: 1rem;
+        }
+        .project-item {
+            background: #fff8e7;
+            border: 1px solid #5b3924;
+            padding: 1rem;
+            text-align: center;
+        }
+        footer {
+            background: rgba(91, 57, 36, 0.75);
+            color: #f5f5dc;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburger = document.querySelector(".hamburger");
+            const navbar = document.querySelector(".navbar");
+            hamburger.addEventListener("click", () => {
+                navbar.classList.toggle("active");
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <button class="hamburger">☰</button>
+            <ul class="navbar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#khad-intro">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="index.html#live-collaboration">Industrial Collaborations</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section class="project-overview container">
+            <h1>Academic Projects</h1>
+            <p>Explore more design details and behind-the-scenes insights for each featured project.</p>
+            <div class="project-grid">
+                <div class="project-item" id="p1">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Innovation Lab</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p2">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Experiential Retail</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p3">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Office Lobby</h2>
+                    
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p4">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Commercial Office</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p5">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Technicals</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p6">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Modular Product Display</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p7">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Circular Economy Products</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p8">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Residential</h2>
+                    <div class="overlay"></div>
+                </div>
+                <div class="project-item" id="p9">
+                    <h2 style="text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;">Installations</h2>
+                    <div class="overlay"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!--  -->
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Khadijah Limdiwala. All rights reserved.</p>
+    </footer>
+    <script src="projectscript.js"></script>
+</body>
+</html>
