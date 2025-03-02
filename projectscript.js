@@ -251,6 +251,10 @@ document.addEventListener("DOMContentLoaded", () => {
             iframe.style.border = "none";
             iframe.style.marginBottom = "1rem";
             container.appendChild(iframe);
+            const altText = document.createElement("p");
+            // altinner1 = "Please Note that this video may not be playable in Safari and FireFox Browsers. You can also view this video in a new tab following this <a href='${file}'>link</a>"
+            // altinner2 = "'>link</a>"
+            altText.innerHTML = `Please Note that this video may not be playable in Safari and FireFox Browsers. You can also view this video in a new tab following this <a href="${file}" target="_blank" rel="noopener noreferrer">link</a>`;
           } else if (
             extension === "jpg" ||
             extension === "gif" ||
