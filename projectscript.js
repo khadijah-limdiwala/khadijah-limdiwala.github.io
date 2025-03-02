@@ -240,9 +240,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const renderMedia = (fileList, container) => {
         fileList.forEach((file) => {
           const extension = file.split(".").pop().toLowerCase();
-          if (file.includes("google.com")) {
+          if (
+            (projectId === "p2" || projectId === "p4") &&
+            file.includes("google.com")
+          ) {
             const iframe = document.createElement("iframe");
-            iframe.src = file;
+            iframe.src = `url(${file})`;
             iframe.width = "100%";
             iframe.height = "480";
             iframe.style.border = "none";
