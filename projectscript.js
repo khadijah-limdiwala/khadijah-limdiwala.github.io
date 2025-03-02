@@ -25,7 +25,6 @@ const proj = {
       "img13.gif",
       "vid1.mp4",
       "vid2.mp4",
-      "vid3.mp4",
     ],
   },
   p2: {
