@@ -245,7 +245,7 @@ document.addEventListener("DOMContentLoaded", () => {
             file.includes("google.com")
           ) {
             const iframe = document.createElement("iframe");
-            iframe.src = `url(${file})`;
+            iframe.src = file;
             iframe.width = "100%";
             iframe.height = "480";
             iframe.style.border = "none";
