@@ -39,7 +39,7 @@ const proj = {
       "img3.jpg",
       "img4.jpg",
       "img5.jpg",
-      "vid1.mp4",
+      "https://drive.google.com/file/d/1uWNFhURG5xELnyc_CZXD3PByVP-sGr6r/preview",
     ],
   },
   p3: {
@@ -75,7 +75,7 @@ const proj = {
       "img6.png",
       "img7.png",
       "img8.png",
-      "vid1.mp4",
+      "https://drive.google.com/file/d/1iyiQeVgInc6RtMChz5JrGqELMZP71Dwz/preview",
     ],
   },
   p5: {
@@ -141,8 +141,6 @@ const proj = {
     headerImg: "media/pcoverimg/p8.png",
     heading: "</b>COALESCENCE</b><br>",
     filenames: [
-      "img1.png",
-      "img2.png",
       "img3.png",
       "img4.png",
       "img5.png",
@@ -241,6 +239,32 @@ document.addEventListener("DOMContentLoaded", () => {
       // Helper to render images/videos
       const renderMedia = (fileList, container) => {
         fileList.forEach((file) => {
+          if (file.includes("google.com")) {
+            const iframe = document.createElement("iframe");
+            iframe.src = file;
+            iframe.width = "100%";
+            //iframe.height = "480";
+            iframe.style.border = "none";
+            iframe.style.marginBottom = "1rem";
+            container.appendChild(iframe);
+          } else if (
+            extension === "jpg" ||
+            extension === "gif" ||
+            extension === "png"
+          ) {
+            const img = document.createElement("img");
+            img.src = `${mediaFolder}${file}`;
+            img.style.width = "100%";
+            img.style.marginBottom = "1rem";
+            container.appendChild(img);
+          } else if (extension === "mp4") {
+            const video = document.createElement("video");
+            video.src = `${mediaFolder}${file}`;
+            video.controls = true;
+            video.style.width = "100%";
+            video.style.marginBottom = "1rem";
+            container.appendChild(video);
+          }
           const extension = file.split(".").pop().toLowerCase();
           if (
             extension === "jpg" ||
