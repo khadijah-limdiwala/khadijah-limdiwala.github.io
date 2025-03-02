@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const iframe = document.createElement("iframe");
             iframe.src = file;
             iframe.width = "100%";
-            //iframe.height = "480";
+            iframe.height = "480";
             iframe.style.border = "none";
             iframe.style.marginBottom = "1rem";
             container.appendChild(iframe);
