@@ -1,4 +1,45 @@
 const proj = {
+  p0: {
+    description:
+      "<b>Inher Mind - Thesis </b><br>This thesis envisions a transformative approach—a space designed for women that transcends traditional care models. This is not merely a healthcare facility but a sanctuary where holistic healing takes center stage. The envisioned space merges clinical precision with non-clinical, interactive therapies, tailored to the cognitive, emotional, and physical needs of women. It addresses neurological disorders not as isolated conditions but as interconnected facets of a woman’s life, influenced by her environment, relationships, and identity.<br>Balancing scientific precision with the flexibility and functionality of design demands sensitivity, care, and creativity. Integrating advanced technologies without overwhelming the human experience requires a thoughtful touch. Above all, creating a space that transcends traditional therapeutic environments—making it feel like a sanctuary of hope and renewal—presents an opportunity to innovate truly. This project isn’t just about creating a space. It’s about creating possibilities: for healing, for connection, for lives transformed. It’s about designing with empathy, crafting an environment that whispers, “You are seen, you are valued, and you are capable of thriving.”<br>Through tailored programs, the space becomes a hub for proactive diagnostics, cognitive and physical rehabilitation, an awareness platform, caregiver training, and personalized therapy. It seamlessly integrates both clinical and non-clinical approaches, to address the unique needs of women with neurological conditions. Beyond individual care, the design extends its reach to families and caregivers. The elements would help build a supportive ecosystem that fosters understanding, shared strength, and the destigmatization of neurological challenges. Neurological disorders are not just individual struggles; they are collective challenges that test the resilience of societies.<br>This space also acknowledges that healing is not a linear process. Recovery comes in moments of progress and setbacks, in steps forward and pauses to breathe. For some, progress might look like improved motor coordination or better sleep; for others, it might mean a moment of joy sparked by a familiar smell or a piece of music that stirs a memory. The goal is not perfection but possibility—to create an environment where every woman can find her own path to well-being.<br>Critically, this model addresses the systemic barriers that impede access to care. Technological integration is not a replacement for human touch but a complement, enhancing efficiency and accessibility. The ultimate goal is empowerment—empowering women to reclaim their lives, families to navigate caregiving with confidence, and society to view neurological disorders through a lens of empathy rather than stigma.<br><b>“Because when you heal a woman, you heal a family, a community, and a future filled with possibilities.”</b><br>",
+    description2:
+      "<b>While the ‘In-Between’ space physically engages people with neurological conditions through sensory, cognitive, and emotional environments, memory and healing don’t stop at the door. It’s a personalized memory companion — a digital archive, a therapeutic tool, and a storytelling platform — all rolled into one.</b><br>Hey there, I’m Neura — not just a pretty mascot face! Think of me as your memory BFF, gentle guide, and a slightly nerdy archivist (with excellent taste in nostalgia). I’m here to help you rewind, relive, and remember — one cozy memory at a time. Let’s make your mind a place you love visiting!<br>",
+    description3:
+      "<b>PODCAST STREAMING ON SPOTIFY</b><br>It brings expertise + empathy + everyday life into one soundstream — to comfort, educate, and normalize memory loss and its emotional spectrum.<br>",
+    description4:
+      "<b>MEMORY VAULT APP.</b><br>Designed for individuals with memory loss, their caregivers, and family members, the app captures, reconstructs, and revives important moments in life using AI and sensory tools.<br>",
+    mediaFolder: "media/p0/",
+    heading: "<b>Thesis - In Her Mind</b><br>",
+    headerImg: "media/pcoverimg/p0.jpg",
+    filenames: [
+      "img1.jpg",
+      "img2.jpg",
+      "img3.jpg",
+      "img4.jpg",
+      "img5.jpg",
+      "img6.jpg",
+      "img7.jpg",
+      "img8.jpg",
+      "img9.jpg",
+      "img10.jpg",
+      "img11.jpg",
+      "img12.jpg",
+      "img13.jpg",
+      "img14.jpg",
+      "img15.jpg",
+      "img16.jpg",
+      "img17.jpg",
+      "img18.jpg",
+      "img19.jpg",
+      "img20.jpg",
+      "img21.jpg",
+      "img22.jpg",
+      "img23.jpg",
+      "img24.jpg",
+      "img25.jpg",
+      "https://drive.google.com/file/d/1Jyz902Lk4xVF61u0hDLCZTQQNErDWnkb/preview",
+    ],
+  },
   p1: {
     description:
       "<b>Primary Space</b> <br> The Good Space Collaborative is an FMCG innovation lab where “Conscious meets Consumerism.” Infused with Gammascape—a 40Hz gamma-wave auditory ambiance—it's designed to enhance productivity and well-being. Interactive screens and adaptive lighting empower employees and visitors to personalize the space, creating a unique virtual footprint.<br> By welcoming clients and consumers into our lab, we invite them into our mission: to bridge profit with sustainability. Here, we transform consumerism into conscious action, exploring the afterlives of products and proving sustainability isn't just a concept—it's our ethos.<br> A connecting tissue through the space. Three criterias that touch base on light, sound, and feel <br> <ul> <li>Vibrational Feedback</li> <li>Dynamic Lighting</li> <li>Thermochromatic</li> </ul>",
@@ -194,6 +235,7 @@ document.addEventListener("DOMContentLoaded", () => {
         description,
         description2,
         description3,
+        description4,
         filenames,
         mediaFolder,
       } = projectData;
@@ -242,7 +284,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const filecopy = file;
           const extension = file.split(".").pop().toLowerCase();
           if (
-            (projectId === "p2" || projectId === "p4") &&
+            (projectId === "p2" || projectId === "p4" || projectId === "p0") &&
             file.includes("google.com")
           ) {
             const iframe = document.createElement("iframe");
@@ -282,7 +324,45 @@ document.addEventListener("DOMContentLoaded", () => {
       modalContent.appendChild(closeButton);
       modalContent.appendChild(headingElem);
 
-      if (projectId === "p1" || (projectId === "p9" && filenames?.length)) {
+      if (projectId === "p0") {
+        // description
+        const desc1Elem = document.createElement("p");
+        desc1Elem.innerHTML = description || "";
+        modalContent.appendChild(desc1Elem);
+
+        // First 7
+        renderMedia(filenames.slice(0, 7), galleryContainer);
+
+        // description2
+        if (description2) {
+          const desc2Elem = document.createElement("p");
+          desc2Elem.innerHTML = description2;
+          galleryContainer.appendChild(desc2Elem);
+        }
+        // Next 1
+        renderMedia(filenames.slice(7, 8), galleryContainer);
+
+        // description3
+        if (description3) {
+          const desc3Elem = document.createElement("p");
+          desc3Elem.innerHTML = description3;
+          galleryContainer.appendChild(desc3Elem);
+        }
+        // next 1
+        renderMedia(filenames.slice(8, 9), galleryContainer);
+
+        // description4
+        if (description4) {
+          const desc4Elem = document.createElement("p");
+          desc4Elem.innerHTML = description4;
+          galleryContainer.appendChild(desc4Elem);
+        }
+        // everything after that
+        renderMedia(filenames.slice(9), galleryContainer);
+      } else if (
+        projectId === "p1" ||
+        (projectId === "p9" && filenames?.length)
+      ) {
         // description
         const desc1Elem = document.createElement("p");
         desc1Elem.innerHTML = description || "";
